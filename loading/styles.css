@@ -1,0 +1,51 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    background-color:#f8f9fd;
+}
+
+.loader-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+}
+
+.loader {
+    width: 100px;
+    aspect-ratio: 1;
+    position: relative;
+}
+
+.loader:before,
+.loader:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: -20px 0 0 -20px; 
+    width: 40px;
+    aspect-ratio: 1;
+    background: rgb(226, 176, 76);
+    animation:
+        l12-1 2s infinite,
+        l12-2 1s infinite;
+}
+
+.loader:after {
+    background: rgb(2, 42, 72);
+    animation-delay: -1s, 0s;
+}
+
+@keyframes l12-1 {
+    0%   {top:0;   left:0}
+    25%  {top:100%;left:0}
+    50%  {top:100%;left:100%}
+    75%  {top:0;   left:100%}
+    100% {top:0;   left:0}
+}
+
+@keyframes l12-2 {
+    40%, 50% {transform: rotate(0.25turn) scale(0.5)}
+    100%     {transform: rotate(0.5turn) scale(1)}
+}

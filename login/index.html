@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/Logo.png" type="images/icon type"> 
+    <title>Città dell’amore.ge</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="image-section">
+            <img src="../images/log_in.png" alt="Logo">
+        </div>
+
+        <div class="form-section">
+            <div id="login-form">
+                <div class="header-group">
+                    <h2>Sign In</h2>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/varadashvili.giorgi?locale=ka_GE"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/sun_night_and_stars/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <form id="signInForm">
+                    <div class="input-group">
+                        <label>USERNAME</label>
+                        <input type="text" id="login_user" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <label>PASSWORD</label>
+                        <input type="password" id="login_pass" placeholder="Password" required>
+                    </div>
+                    
+                    <a href="javascript:void(0)" onclick="handleLogin()" class="sign-in-btn" style="text-align: center; text-decoration: none; display: block;">Sign In</a>
+
+                    <div class="options">
+                        <label class="remember-me">
+                            <input type="checkbox"> <span>Remember Me</span>
+                        </label>
+                        <a href="javascript:void(0)" class="forgot-pass" onclick="toggleForms()">Forgot Password</a>
+                    </div>
+                    <p class="footer-text">Not a member? <a href="javascript:void(0)" onclick="toggleForms()">Sign Up</a></p>
+                </form>
+            </div>
+
+            <div id="register-form" style="display: none;">
+                <div class="header-group">
+                    <h2>Sign Up</h2>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/varadashvili.giorgi?locale=ka_GE"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/sun_night_and_stars/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <form id="regForm">
+                    <div class="input-group">
+                        <label>FULL NAME</label>
+                        <input type="text" placeholder="First & Last Name" required>
+                    </div>
+                    <div class="input-group">
+                        <label>PHONE NUMBER</label>
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+                    <div class="input-group">
+                        <label>EMAIL</label>
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <label>PASSWORD</label>
+                        <input type="password" id="pass" placeholder="Password" required>
+                    </div>
+                    <div class="input-group">
+                        <label>CONFIRM PASSWORD</label>
+                        <input type="password" id="confirm_pass" placeholder="Confirm Password" required>
+                        <small id="error-msg" style="color: red; display: none; font-size: 11px; margin-top: 5px;">პაროლი არასწორია, სცადეთ თავიდან!</small>
+                        <small id="success-msg" style="color: green; display: none; font-size: 11px; margin-top: 5px;">რეგისტრაცია წარმატებულია! გადამისამართება...</small>
+                    </div>
+                    
+                    <button type="button" id="reg-btn" onclick="validatePasswords()" class="sign-in-btn">Register Now</button>
+                    
+                    <p class="footer-text">Already have an account? <a href="javascript:void(0)" onclick="toggleForms()">Sign In</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            const login = document.getElementById('login-form');
+            const register = document.getElementById('register-form');
+            if (login.style.display === 'none') {
+                login.style.display = 'block';
+                register.style.display = 'none';
+            } else {
+                login.style.display = 'none';
+                register.style.display = 'block';
+            }
+        }
+
+        function handleLogin() {
+            const user = document.getElementById('login_user');
+            const pass = document.getElementById('login_pass');
+
+            if (user.value.trim() === "" || pass.value.trim() === "") {
+                if (user.value.trim() === "") user.style.borderColor = "red";
+                if (pass.value.trim() === "") pass.style.borderColor = "red";
+            } else {
+                user.style.borderColor = "green";
+                pass.style.borderColor = "green";
+                window.location.href = "../main_page/index.html"; 
+            }
+        }
+
+        function validatePasswords() {
+            const pass = document.getElementById('pass');
+            const confirm = document.getElementById('confirm_pass');
+            const errorMsg = document.getElementById('error-msg');
+            const successMsg = document.getElementById('success-msg');
+            const regBtn = document.getElementById('reg-btn');
+
+            if (pass.value !== confirm.value || pass.value === "") {
+                confirm.style.borderColor = "red";
+                errorMsg.style.display = "block";
+                successMsg.style.display = "none";
+                confirm.value = "";
+            } else {
+                confirm.style.borderColor = "green";
+                pass.style.borderColor = "green";
+                errorMsg.style.display = "none";
+                successMsg.style.display = "block";
+                regBtn.disabled = true;
+
+                setTimeout(function() {
+                    confirm.style.borderColor = "#ddd";
+                    pass.style.borderColor = "#ddd";
+                    successMsg.style.display = "none";
+                    regBtn.disabled = false;
+                    toggleForms();
+                }, 3000);
+            }
+        }
+
+        document.querySelectorAll('.input-group input').forEach(input => {
+            input.addEventListener('input', () => {
+                input.style.borderColor = "#ddd";
+            });
+        });
+    </script>
+</body>
+</html>
