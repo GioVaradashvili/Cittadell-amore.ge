@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Città dell’amore | Premium Couples Studio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="luxury-nav">
+        <div class="logo">Città dell’amore</div>
+        <ul class="nav-menu">
+            <li><a href="#collection" class="menu-link active">New Releases</a></li>
+            <li><a href="#collection" class="menu-link">Matching Apparel</a></li>
+            <li><a href="#collection" class="menu-link">Fine Jewelry</a></li>
+            <li><a href="#collection" class="menu-link">Amore Stories</a></li>
+        </ul>
+        <div class="nav-utilities">
+            <button id="theme-toggle" class="nav-btn-secondary">🌙 Dark Reader</button>
+            <button id="cart-toggle" class="nav-btn-primary">Bag (<span id="cart-counter">0</span>)</button>
+        </div>
+    </nav>
+
+    <header class="nike-style-hero">
+        <div class="hero-text-side">
+            <span class="hero-series-tag">The Celestial Drop</span>
+            <h1 class="hero-display-title">WELCOME TO THE SUN & MOON</h1>
+            <p class="hero-lead-text">This is the official SUN_MOON_AND_STARS online store created especially for our loyal viewers where you will find couples bracelets, necklaces, hoodies, t-shirts, phone cases and much more.</p>
+            <a href="#collection" class="hero-action-cta">Shop the Capsule</a>
+        </div>
+        
+        <div class="hero-graphic-side">
+            <div class="ambient-celestial-glow"></div>
+            <div class="celestial-orbit-container">
+                <div class="cosmic-sun"></div>
+                <div class="cosmic-moon"></div>
+            </div>
+            <img src="/images/main page.png" alt="Featured Premium Couple Hoodies" class="hero-showcase-img">
+        </div>
+    </header>
+
+    <main class="storefront-body" id="collection">
+        <div class="catalog-header">
+            <h2>Trending Essentials</h2>
+        </div>
+        
+        <div class="nike-product-grid" id="products-root">
+            </div>
+    </main>
+
+    <aside class="bag-drawer" id="bag-sidebar">
+        <div class="drawer-content">
+            <div class="drawer-header">
+                <h3>Shopping Bag</h3>
+                <button id="close-bag" class="close-drawer-x">&times;</button>
+            </div>
+            
+            <div class="drawer-items-list" id="bag-items-target">
+                </div>
+            
+            <div class="drawer-checkout-footer">
+                <div class="subtotal-display">
+                    <span>Subtotal</span>
+                    <span>$<span id="subtotal-val">0.00</span></span>
+                </div>
+                
+                <form id="checkout-form" class="secure-checkout-panel">
+                    <h4>Secure Checkout</h4>
+                    <input type="text" placeholder="Cardholder Name" required class="luxury-input">
+                    <input type="text" placeholder="Card Number" maxlength="16" required class="luxury-input">
+                    <div class="input-split-row">
+                        <input type="text" placeholder="MM/YY" maxlength="5" required class="luxury-input">
+                        <input type="text" placeholder="CVV" maxlength="3" required class="luxury-input">
+                    </div>
+                    <button type="submit" class="submit-checkout-btn">Complete Transaction</button>
+                </form>
+            </div>
+        </div>
+    </aside>
+
+    <script src="script.js"></script>
+</body>
+</html>
