@@ -1,5 +1,3 @@
-// --- Premium Store Product Catalog Matrix ---
-// დამატებულია ფერების და ზომების მასივები ყოველი პროდუქტისთვის
 const amoreInventory = [
     {
         id: 201,
@@ -72,7 +70,7 @@ let currentModalQty = 1;
 let selectedColorStr = "";
 let selectedSizeStr = "";
 
-// --- Global DOM Node Anchors ---
+
 const productsGridRoot = document.getElementById('products-root');
 const themeToggleBtn = document.getElementById('theme-toggle');
 const cartToggleBtn = document.getElementById('cart-toggle');
@@ -83,7 +81,7 @@ const cartCounterNode = document.getElementById('cart-counter');
 const subtotalValNode = document.getElementById('subtotal-val');
 const checkoutFormPanel = document.getElementById('checkout-form');
 
-// ასარჩევი ფანჯრის ელემენტები
+
 const productModal = document.getElementById('product-modal');
 const closeModalTrigger = document.getElementById('close-modal-trigger');
 const modalMainImg = document.getElementById('modal-main-img');
@@ -97,8 +95,7 @@ const modalSizesBox = document.getElementById('modal-sizes-box');
 const modalQtyVal = document.getElementById('modal-qty-val');
 const modalAddToBagBtn = document.getElementById('modal-add-to-bag-btn');
 
-// --- Layout Injection Engine ---
-// შეცვლილია ღილაკი: ახლა იძახებს პროდუქტის ასარჩევ ფანჯარას
+
 function initializeCatalogDisplay() {
     productsGridRoot.innerHTML = amoreInventory.map(item => `
         <article class="nike-product-card">
@@ -119,7 +116,7 @@ function initializeCatalogDisplay() {
     `).join('');
 }
 
-// --- ასარჩევი ფანჯრის გახსნა და მონაცემების შევსება ---
+
 window.openProductModal = function(productId) {
     const product = amoreInventory.find(p => p.id === productId);
     if (!product) return;
@@ -137,17 +134,17 @@ window.openProductModal = function(productId) {
     modalPrice.innerText = `${product.price.toFixed(2)} GEL`;
     modalQtyVal.innerText = currentModalQty;
 
-    // ფერების ჩატვირთვა
+
     modalColorsBox.innerHTML = product.colors.map(color => `
         <button class="color-pill ${color === selectedColorStr ? 'selected' : ''}" onclick="selectColor('${color}', this)">${color}</button>
     `).join('');
 
-    // ზომების ჩატვირთვა
+    
     modalSizesBox.innerHTML = product.sizes.map(size => `
         <button class="size-tile ${size === selectedSizeStr ? 'selected' : ''}" onclick="selectSize('${size}', this)">${size}</button>
     `).join('');
 
-    // წინასწარი შეკვეთის (დამატების) ღილაკი
+
     modalAddToBagBtn.onclick = () => {
         executeAddToBag(product, currentModalQty, selectedColorStr, selectedSizeStr);
         productModal.classList.remove('modal-active');
@@ -156,7 +153,7 @@ window.openProductModal = function(productId) {
     productModal.classList.add('modal-active');
 };
 
-// --- ფერისა და ზომის მონიშვნა ---
+
 window.selectColor = function(color, element) {
     document.querySelectorAll('.color-pill').forEach(btn => btn.classList.remove('selected'));
     element.classList.add('selected');
@@ -175,9 +172,9 @@ window.adjustModalQty = function(amount) {
     modalQtyVal.innerText = currentModalQty;
 };
 
-// --- კალათაში რეალური დამატების ლოგიკა ---
+
 function executeAddToBag(product, qty, color, size) {
-    // ვამოწმებთ, უკვე არის თუ არა ზუსტად ასეთი კომბინაცია კალათაში
+
     const existingIndex = reactiveBag.findIndex(item => item.id === product.id && item.color === color && item.size === size);
 
     if (existingIndex > -1) {
@@ -195,14 +192,14 @@ function executeAddToBag(product, qty, color, size) {
     }
     renderBagUpdate();
     
-    // კალათის გვერდითა პანელის ავტომატური გამოჩენა დამატებისას
+
     bagSidebarPanel.classList.add('drawer-open');
 }
 
-// --- Dynamic Shopping Basket Logic (დამოუკიდებელი ძველი კალათის სტრუქტურისგან) ---
+
 window.addItemToBag = function(itemId) {
     const targetItem = amoreInventory.find(product => product.id === itemId);
-    // ძველი ფუნქციის თავსებადობისთვის (თუ პირდაპირ დამატება დაგჭირდა სადმე)
+
     executeAddToBag(targetItem, 1, targetItem.colors[0], targetItem.sizes[0]);
 };
 
@@ -232,7 +229,7 @@ window.removeBagItem = function(index) {
     renderBagUpdate();
 };
 
-// --- Theme Toggling & Interface Control Listeners ---
+
 closeModalTrigger.addEventListener('click', () => productModal.classList.remove('modal-active'));
 productModal.addEventListener('click', (e) => { if(e.target === productModal) productModal.classList.remove('modal-active'); });
 
@@ -263,5 +260,4 @@ checkoutFormPanel.addEventListener('submit', (e) => {
     checkoutFormPanel.reset();
 });
 
-// Start Interface Runtime Execution
 initializeCatalogDisplay();

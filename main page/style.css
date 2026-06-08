@@ -1,4 +1,3 @@
-/* --- Global Theme Design Architecture Variables --- */
 :root {
     --bg-main: rgb(248, 249, 253);
     --bg-card: #ffffff;
@@ -21,7 +20,7 @@
     --panel-shadow: rgba(0, 0, 0, 0.4);
 }
 
-/* --- Base Structural Setup --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -40,7 +39,7 @@ body {
     overflow-x: hidden;
 }
 
-/* --- Nike-Style Premium Header Navigation --- */
+
 .luxury-nav {
     display: flex;
     justify-content: space-between;
@@ -131,7 +130,7 @@ body {
     background-color: var(--bg-main);
 }
 
-/* --- Nike-Style Split Grid Hero Banner --- */
+
 .nike-style-hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -192,7 +191,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* --- Hero Visual System (Sun & Moon Graphic Engine) --- */
+
 .hero-graphic-side {
     position: relative;
     background-color: var(--bg-main);
@@ -248,7 +247,7 @@ body {
     animation: gentleFloat 6s ease-in-out infinite;
 }
 
-/* --- High-Density Retail Grid System --- */
+
 .storefront-body {
     padding: 80px 5%;
 }
@@ -331,7 +330,7 @@ body {
     font-size: 1.2rem;
 }
 
-/* --- Sliding Bag Panel Drawer --- */
+
 .bag-drawer {
     position: fixed;
     top: 0;
@@ -391,7 +390,7 @@ body {
     border-bottom: 1px solid var(--border-line);
 }
 
-/* --- Checkout Panel Interface --- */
+
 .drawer-checkout-footer {
     border-top: 1px solid var(--border-line);
     padding-top: 25px;
@@ -456,7 +455,7 @@ body {
     color: white;
 }
 
-/* --- CSS Hardware Accelerated Motion Timelines --- */
+
 @keyframes gentleFloat {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
     50% { transform: translateY(-15px) rotate(1deg); }
@@ -466,7 +465,7 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-/* --- ახალი დამატებული ასარჩევი ფანჯრის (Modal) სტილები --- */
+
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -692,7 +691,7 @@ body {
     padding-left: 12px;
 }
 
-/* Responsive Structural Breakpoints */
+
 @media (max-width: 960px) {
     .nike-style-hero {
         grid-template-columns: 1fr;
