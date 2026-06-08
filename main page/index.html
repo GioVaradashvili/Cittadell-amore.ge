@@ -26,7 +26,7 @@
 
     <header class="nike-style-hero">
         <div class="hero-text-side">
-            <span class="hero-series-tag">The Celestial Drop</span>
+            <span class="hero-series-tag">SUN_NIGHT_AND_STARS  <br> official shop</span>
             <h1 class="hero-display-title">WELCOME TO THE SUN & MOON</h1>
             <p class="hero-lead-text">This is the official SUN_MOON_AND_STARS online store created especially for our loyal viewers where you will find couples bracelets, necklaces, hoodies, t-shirts, phone cases and much more.</p>
             <a href="#collection" class="hero-action-cta">Shop the Capsule</a>
@@ -50,6 +50,53 @@
         <div class="nike-product-grid" id="products-root">
             </div>
     </main>
+
+    <div class="modal-backdrop" id="product-modal">
+        <div class="product-viewer-container">
+            <button class="close-modal-btn" id="close-modal-trigger">&times;</button>
+            
+            <div class="modal-split-layout">
+                <div class="viewer-media-side">
+                    <div class="main-display-frame">
+                        <img id="modal-main-img" src="" alt="Showcase View">
+                    </div>
+                    <div class="thumbnail-gallery-row">
+                        <img id="modal-thumb-1" class="thumb-node active" src="" alt="Preview 1">
+                        <img id="modal-thumb-2" class="thumb-node" src="" alt="Preview 2">
+                    </div>
+                </div>
+
+                <div class="viewer-details-side">
+                    <nav class="breadcrumb-trail" id="modal-breadcrumb">Home > Shop</nav>
+                    <h1 class="product-main-title" id="modal-title">Product Name</h1>
+                    <div class="product-price-tag" id="modal-price">0.00 GEL</div>
+
+                    <hr class="modal-divider-line">
+
+                    <div class="attribute-selection-group">
+                        <label class="attribute-label">ფერი / Color:</label>
+                        <div class="color-options-flex" id="modal-colors-box"></div>
+                    </div>
+
+                    <div class="attribute-selection-group">
+                        <label class="attribute-label">ზომა / Size:</label>
+                        <div class="size-options-grid" id="modal-sizes-box"></div>
+                    </div>
+
+                    <div class="attribute-selection-group">
+                        <label class="attribute-label">რაოდენობა / Quantity:</label>
+                        <div class="quantity-picker-row">
+                            <button class="qty-math-btn" onclick="adjustModalQty(-1)">-</button>
+                            <span class="qty-current-val" id="modal-qty-val">1</span>
+                            <button class="qty-math-btn" onclick="adjustModalQty(1)">+</button>
+                        </div>
+                    </div>
+                    <button class="modal-primary-buy-btn" id="modal-add-to-bag-btn">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <aside class="bag-drawer" id="bag-sidebar">
         <div class="drawer-content">
